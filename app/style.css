@@ -31,3 +31,33 @@ button{min-height:48px;font-size:18px;line-height:1.4}.primary,.share-button{bor
 @media(max-width:480px){.home,.dashboard{padding:20px 16px 0}.setup,.side-card,.settle-card,.total-card{padding:20px}.trip-heading{flex-direction:column}.trip-heading .share-button,.section-title .add-button{width:100%}.section-title{align-items:stretch}.total{font-size:34px}.expense-right{width:100%;text-align:left;margin-left:0;padding-left:0;display:flex;align-items:center;justify-content:space-between;gap:12px}.edit-button{margin:0}.expense-icon{display:none}.modal{padding:22px}.balance-row{flex-wrap:wrap}.brand{font-size:26px}}
 
 .group-label{font-size:18px;font-weight:700;margin:0}.member-inputs{margin-top:0;gap:12px}.modal:not([open]){display:none}.modal[open]{display:block}
+
+/* Mobile layout: allow content to reflow instead of shrinking the text. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.home,.dashboard{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));padding-bottom:env(safe-area-inset-bottom)}
+.home-grid>*,.dashboard-grid>*,.trip-heading>*,.total-card>*,.modal-heading>*,.stack>*,.input-with-number input{min-width:0}
+input,select{max-width:100%;min-width:0}
+.hero,.trip-heading,.side-card,.settle-card,.expense-row,.checks label,.privacy,.hint{overflow-wrap:anywhere}
+.trip-heading h1{overflow-wrap:anywhere}
+.checks label{max-width:100%}.checks label span{min-width:0}
+.modal{max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);scroll-padding-block:24px}
+.modal input,.modal select{scroll-margin-block:24px}
+@media(min-width:801px){.home,.dashboard{padding-left:max(32px,env(safe-area-inset-left));padding-right:max(32px,env(safe-area-inset-right))}}
+@media(max-width:1050px){.home-grid{grid-template-columns:minmax(0,1fr)}.hero{padding-top:12px}.hero>p{max-width:650px}.setup{width:100%;max-width:650px}.converter{max-width:650px;margin-left:0}.home-grid{min-height:0}}
+@media(max-width:600px){
+ .trip-heading{flex-direction:column;align-items:stretch}.trip-heading .share-button{width:100%}
+ .section-title{flex-direction:column;align-items:stretch}.section-title .add-button{width:100%;text-align:center}
+ .total{font-size:clamp(28px,7.5vw,38px);font-variant-numeric:tabular-nums}.total-card>div:first-child{width:100%}
+ .balance-row{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center}.balance-row>strong{min-width:0}.balance-amount{grid-column:2;margin:0;text-align:left}
+ .expense-row{display:grid;grid-template-columns:minmax(0,1fr)}.expense-icon{display:none}.expense-info{min-width:0}
+ .expense-right{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:0;text-align:left}.expense-right>strong{min-width:0;overflow-wrap:anywhere;flex:1}.edit-button{margin:0;flex-shrink:0}
+ .checks{display:grid;grid-template-columns:minmax(0,1fr)}.checks label{width:100%;border-radius:10px}
+ .modal{width:100%;max-width:100%;height:100%;max-height:100%;height:100dvh;max-height:100dvh;margin:0;border:0;border-radius:0;padding:20px max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
+ .modal-heading{margin-bottom:24px}.modal-heading h2{font-size:28px}.modal .eyebrow{font-size:16px;letter-spacing:0}
+ .modal .primary,.modal .share-button,.modal .delete-button{width:100%}
+ .setup{padding:20px}.hero h1{font-size:clamp(36px,10vw,46px)}
+ .step{flex-wrap:wrap;gap:8px}.primary{overflow-wrap:anywhere}.primary span{float:none;margin-left:8px}
+ footer{flex-direction:column;gap:8px}
+}
+@media(max-height:500px) and (min-width:601px){.modal{max-height:calc(100dvh - 16px);padding:20px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
